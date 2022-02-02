@@ -67,6 +67,8 @@ public class MaquinaExpendedora {
 		return cambios;
 	}
 	
-	
+	public Collection<Refresco> getRefrescosVenta(){
+		return this.casillerosRefrescos.values();
+	}
 
 }
