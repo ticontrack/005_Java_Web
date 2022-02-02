@@ -47,24 +47,34 @@ public class MaquinaExpendedora {
 		if ( ! this.casillerosRefrescos.containsKey(tipo)) {
 			throw new VentaRefrescoException("El tipo de refesco no existe");
 		}
-		
+		// 2. el usuario a introducido dinero
 		if( dinero <= 0) {
 			throw new VentaRefrescoException("Debe introducir importe válido");
 		}
-		//.. mas casos error 
-		
-		//...
-		//..
+		// 3. hay stock
+		if( this.casillerosRefrescos.get(tipo).getStock() == 0) {
+			throw new VentaRefrescoException("No hay stock.");
+		}
+		// 4. Importe suficiente
+		if(this.casillerosRefrescos.get(tipo).getPrecio() > dinero) {
+			throw new VentaRefrescoException("Saldo insuficiente." );
+		}
+		// 4. No hay cambios
+		double cambiosVenta =  dinero - this.casillerosRefrescos.get(tipo).getPrecio();
+		if(cambiosVenta > this.cambios) {
+			throw new VentaRefrescoException("No hay cambios." );
+		}
+
 		
 		//ok - saco un refresco 
-		double cambios = 0;
+	
 		
 		this.casillerosRefrescos.get(tipo).sacarRefresco();
 		this.recaudacion += this.casillerosRefrescos.get(tipo).getPrecio();
-		if(dinero > this.casillerosRefrescos.get(tipo).getPrecio()) {
-			cambios = dinero - this.casillerosRefrescos.get(tipo).getPrecio();
+		if(cambiosVenta > 0 ) {
+			cambios -= cambiosVenta;
 		}
-		return cambios;
+		return cambiosVenta;
 	}
 	
 	public Collection<Refresco> getRefrescosVenta(){

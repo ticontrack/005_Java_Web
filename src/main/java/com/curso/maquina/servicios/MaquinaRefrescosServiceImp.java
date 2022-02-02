@@ -32,7 +32,7 @@ public class MaquinaRefrescosServiceImp implements MaquinaRefrescosService {
 			throw new VentaRefrescoException("El tipo indicado de bebida no existe");
 		}
 		
-        double cambios = maquina.vender(tipoRef, importe);
+        double cambios = maquina.vender(tipoRef, importe / 100.0);
 		return cambios;
 	}
 	

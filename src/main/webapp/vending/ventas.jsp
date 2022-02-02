@@ -42,7 +42,12 @@ Hoy es <%=   LocalDate.now()    %>
 
 </form>
 
+<hr />
+     Display:  ${ requestScope.msgOk } 
+     Cambios  ${ requestScope.cambios } 
+     Error; ${ requestScope.msgError } 
 
+<hr />
 
 
 

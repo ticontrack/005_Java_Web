@@ -67,7 +67,7 @@ public class VenderRefrescoServlet extends HttpServlet {
 		 MaquinaRefrescosService maquina = new MaquinaRefrescosServiceImp();
 		 double cambios = 0;
 		
-		 if(msgError != null) {
+		 if(msgError == null) {
 				//llamar a la capa de negocio  a través del service para comprar un refresco
 				 
 				
