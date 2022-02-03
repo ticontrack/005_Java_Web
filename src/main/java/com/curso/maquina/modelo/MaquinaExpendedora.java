@@ -47,7 +47,7 @@ public class MaquinaExpendedora {
 		if ( ! this.casillerosRefrescos.containsKey(tipo)) {
 			throw new VentaRefrescoException("El tipo de refesco no existe");
 		}
-		// 2. el usuario a introducido dinero
+		// 2. el usuario ha introducido dinero
 		if( dinero <= 0) {
 			throw new VentaRefrescoException("Debe introducir importe válido");
 		}

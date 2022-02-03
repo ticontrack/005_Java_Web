@@ -15,10 +15,10 @@ Hoy es <%=   LocalDate.now()    %>
 
 <hr/>
  
- 	<h2> Elija un refresco e introduzca el precio</h2>
+ 	<h2> Elija un refresco e introduzca el precio aqui</h2>
     
 
-<form action="vender.do" method="post">
+<form action="vende.do" method="post">
 
 	<c:forEach items="${ requestScope.refrescos }" var="refresco" begin="0" end="0" > 
     <input type="radio" name="tipo"  value="${ refresco.tipo.nombre }" checked="checked"/>
@@ -43,9 +43,15 @@ Hoy es <%=   LocalDate.now()    %>
 </form>
 
 <hr />
+
+
+<c:if test="${requestScope.msgOk != null}">
      Display:  ${ requestScope.msgOk } 
      Cambios  ${ requestScope.cambios } 
+</c:if>
+<c:if test="${not empty requestScope.msgError}">
      Error; ${ requestScope.msgError } 
+</c:if>
 
 <hr />
 

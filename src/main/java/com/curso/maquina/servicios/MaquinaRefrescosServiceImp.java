@@ -2,11 +2,22 @@ package com.curso.maquina.servicios;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
+
 import com.curso.maquina.modelo.MaquinaExpendedora;
 import com.curso.maquina.modelo.Refresco;
 import com.curso.maquina.modelo.TiposRefresco;
 import com.curso.maquina.modelo.VentaRefrescoException;
 
+//EJB de session sin estado
+//COMPONENTE DE NEGOCIO:
+//    . autogestionado por el contendor de EBJS
+//    . llamadas remotas 
+//    . transacconalidad gestionada por contenedor
+//    . seguridad g. por contenedor
+//    . Pool de instancias de este servicio - Escalabilidad
+
+@Stateless
 public class MaquinaRefrescosServiceImp implements MaquinaRefrescosService {
 
 	private static  MaquinaExpendedora maquina;
