@@ -23,18 +23,17 @@ public class VenderRefrescoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//atributo
-	@EJB    //inyecta el contenedor de S.A. una instancia del MaquinaRefrescosServiceImp
+	   //inyecta el contenedor de S.A. una instancia del MaquinaRefrescosServiceImp
 	        // mas exactamente proxy que te permite llamar al pool de instancias
-	private MaquinaRefrescosService maquina;
+	//@EJB
+	//private MaquinaRefrescosService maquina;
 	
-	
-
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   //	response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		// obtener lista refrescos que vende la maquina
-		//MaquinaRefrescosService maquina = new MaquinaRefrescosServiceImp();
+		MaquinaRefrescosService maquina = new MaquinaRefrescosServiceImp();
 		Collection<Refresco> lista = maquina.getListaRefrescosAlaVenta();
 		
 		//tengo que pasar al JSP la lista de refrescos para qeu la muestre
@@ -74,7 +73,7 @@ public class VenderRefrescoServlet extends HttpServlet {
 		 }
 
 		
-		// MaquinaRefrescosService maquina = new MaquinaRefrescosServiceImp();
+		 MaquinaRefrescosService maquina = new MaquinaRefrescosServiceImp();
 		 double cambios = 0;
 		
 		 if(msgError == null) {

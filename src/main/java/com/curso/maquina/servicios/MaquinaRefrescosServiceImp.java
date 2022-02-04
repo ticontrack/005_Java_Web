@@ -17,7 +17,7 @@ import com.curso.maquina.modelo.VentaRefrescoException;
 //    . seguridad g. por contenedor
 //    . Pool de instancias de este servicio - Escalabilidad
 
-@Stateless
+//@Stateless
 public class MaquinaRefrescosServiceImp implements MaquinaRefrescosService {
 
 	private static  MaquinaExpendedora maquina;
